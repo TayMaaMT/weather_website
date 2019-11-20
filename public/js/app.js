@@ -1,14 +1,3 @@
-console.log("ok");
-fetch('http://localhost:3000/weather?address=boston').then((res) => {
-    res.json().then((data) => {
-        if (data.Error) {
-            return console.log(data.Error);
-        }
-        console.log(data.tempreature);
-        console.log(data.address);
-    });
-});
-
 const wetherForm = document.querySelector('form');
 const search = document.querySelector('input');
 const parg1 = document.querySelector('#parg1');
@@ -19,7 +8,7 @@ wetherForm.addEventListener('submit', (e) => {
     const address = search.value;
     parg1.textContent = "Loding...";
     parg2.textContent = "";
-    fetch('http://localhost:3000/weather?address=' + address).then((res) => {
+    fetch('/weather?address=' + address).then((res) => {
         res.json().then((data) => {
             if (data.Error) {
                 parg1.textContent = "Error:";

@@ -3,6 +3,7 @@ const path = require('path');
 const hbs = require('hbs');
 const geocoding = require('./utils/geocoding');
 const forecast = require('./utils/forecast');
+const port = process.env.PORT || 3000;
 //////////////////////////////////////////
 const app = express();
 app.use(express.static(path.join(__dirname, "../public")));
@@ -72,6 +73,6 @@ app.get('*', (req, res) => {
         });
     })
     ///////////////////////////////////////////
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('localhost server is running at post 3000');
 })
